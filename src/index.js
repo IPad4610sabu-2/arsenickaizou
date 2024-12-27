@@ -13,6 +13,10 @@ const archiver = require('archiver');
 const bare = createBareServer("/bare/");
 const app = express();
 
+app.get("/home.pdf", (req, res) => {
+   res.sendFile(__dirname + "/public/index.html");
+});
+
 app.use(express.static("./public"));
 app.use("/uv/", express.static(uvPath));
 app.use('/baremux/', express.static(baremuxPath));
